@@ -219,7 +219,7 @@ const ExitManagement: React.FC = () => {
 		setExitFormData((prev) => ({
 			...prev,
 			[section]: {
-				...prev[section as keyof typeof prev],
+				...(prev[section as keyof typeof prev] || {}),
 				[field]: value,
 			},
 		}));

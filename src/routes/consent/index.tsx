@@ -30,9 +30,7 @@ const ConsentManagement: React.FC = () => {
   const [uploadedDocuments, setUploadedDocuments] = useState<any[]>([])
 
   const [uploadConsent] = useMutation(UPLOAD_CONSENT)
-  const [getSecureDownload] = useQuery(GET_SECURE_DOWNLOAD, {
-    skip: true // We'll call this manually when needed
-  })
+  const [getSecureDownload] = useMutation(GET_SECURE_DOWNLOAD)
 
   const [formData, setFormData] = useState({
     patientId: '',

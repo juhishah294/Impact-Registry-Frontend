@@ -10,7 +10,7 @@ import NavigationProvider from './components/navigation-provider'
 import './index.css'
 
 const httpLink = createHttpLink({
-  uri: import.meta.env.VITE_GRAPHQL_BACKEND_URL || 'http://localhost:4000/graphql',
+  uri: (import.meta as any).env.VITE_GRAPHQL_BACKEND_URL || 'http://localhost:4000/graphql',
 })
 
 const errorLink = onError(({ graphQLErrors, networkError, operation, forward }) => {

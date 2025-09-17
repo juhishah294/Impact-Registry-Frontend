@@ -154,7 +154,7 @@ const PatientManagement: React.FC = () => {
       setFormData(prev => ({
         ...prev,
         [parent]: {
-          ...prev[parent as keyof typeof prev],
+          ...(prev[parent as keyof typeof prev] || {}),
           [child]: value
         }
       }))
@@ -221,16 +221,21 @@ const PatientManagement: React.FC = () => {
 
         // Reset form
         setFormData({
+          // Basic Demographics
           firstName: '',
           lastName: '',
           dateOfBirth: '',
           gender: '',
           email: '',
           phone: '',
+          
+          // Guardian Contact
           guardianName: '',
           guardianPhone: '',
           guardianEmail: '',
           guardianRelationship: '',
+          
+          // Socioeconomic Info
           motherEducationLevel: '',
           fatherEducationLevel: '',
           primaryCaregiver: '',
@@ -238,12 +243,16 @@ const PatientManagement: React.FC = () => {
           primaryEarnerOccupation: '',
           dependentsCount: '',
           familyIncome: '',
+          
+          // Payment Information
           paymentMode: '',
           hasHealthInsurance: false,
           insuranceType: '',
           insuranceProvider: '',
           insurancePolicyNumber: '',
           otherPaymentDetails: '',
+          
+          // Address
           address: {
             line1: '',
             line2: '',
@@ -252,13 +261,73 @@ const PatientManagement: React.FC = () => {
             country: '',
             postalCode: ''
           },
+          
+          // Consent Management
           consentStatusEnum: '',
           consentType: '',
           isVerbalConsent: false,
           isWrittenConsent: false,
           consentNotes: '',
           assentRequired: false,
-          ethicsApprovalRequired: false
+          ethicsApprovalRequired: false,
+          
+          // Clinical History
+          ageAtDiagnosis: '',
+          primaryRenalDiagnosis: '',
+          currentCKDStage: '',
+          symptomDurationYears: '',
+          symptomDurationMonths: '',
+          diagnosisDurationYears: '',
+          diagnosisDurationMonths: '',
+          surgicalInterventions: '',
+          currentComplaints: '',
+          comorbidities: '',
+          
+          // CKD Stage Logic
+          isDialysisInitiated: false,
+          dialysisNotInitiatedReason: '',
+          isPreemptiveTransplantDiscussed: false,
+          isTransplantEvaluationInitiated: false,
+          transplantType: '',
+          
+          // Physical Examination
+          height: '',
+          heightSDS: '',
+          weight: '',
+          bmi: '',
+          bmiSDS: '',
+          systolicBP: '',
+          diastolicBP: '',
+          sbpPercentile: '',
+          dbpPercentile: '',
+          bpClassification: '',
+          growthPercentile: '',
+          tannerStage: '',
+          
+          // Laboratory Investigations
+          serumCreatinine: '',
+          serumUrea: '',
+          eGFR: '',
+          hemoglobin: '',
+          sodium: '',
+          potassium: '',
+          bicarbonate: '',
+          calcium: '',
+          phosphorus: '',
+          vitaminD: '',
+          proteinuriaDipstick: '',
+          ironLevel: '',
+          ferritin: '',
+          pth: '',
+          alp: '',
+          uricAcid: '',
+          
+          // Imaging and Genetics
+          otherImaging: '',
+          geneticTests: '',
+          
+          // Medications
+          medications: []
         })
         setConsentFile(null)
         setShowAddForm(false)

@@ -18,6 +18,7 @@ import {
   Plus,
   Save,
   Eye,
+  X,
   Edit,
   Trash2,
   TrendingUp,
